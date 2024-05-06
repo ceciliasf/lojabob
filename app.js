@@ -19,6 +19,38 @@ function inserir(lg,sn,mail) {
         console.log("Cadastro com sucesso!")
     })  
 }
+//Selecionar dados por id - select nometabela
+function selecionaPorId(id){
+    let sql = "select * from users where id = ?"
+    connection.query(sql,id, function(error,results,fields){
+        if(error) throw error
+        console.log("Selecionado: " + results[0].id + ":" + results[0].login + ":" + results[0].email)
+    })
+}
 
-inserir("Cecilia","12345","cecilia7@gmail.com")
+//Selecionar todos os dados - select nometabela
+function selecionarTudo(){
+    let sql = "select * from users"
+    connection.query(sql, function(error,results,fields){
+        for(let i=0;i<results.length;i++) {
+        if(error) throw error
+        console.log("Selecionado: " + results[i].id + ":" + results[i].login + ":" + results[i].email)
+        }
+    })
+}
+
+//selecionarTudo()
+
+//selecionaPorId(28)
+
+//apagar dados - delete from nometabela
+function apagar(id){
+    let sql = "delete from users where id = ?"
+    connection.query(sql, function(error,results,fields){
+        if(error) throw error
+        console.log("Apagado com sucesso! " + id)
+}
+
+
+//inserir("Cecilia","12345","cecilia7@gmail.com")
 connection.end()
