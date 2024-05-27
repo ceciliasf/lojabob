@@ -1,5 +1,5 @@
 create database bob;
-usebob;
+use bob;
 
 create table usuario(
     id int auto_increment not null,
@@ -7,4 +7,7 @@ create table usuario(
     senha varchar(120) null,
     email varchar(120) null,
     primary key(id)
-)
+);
+
+use bob; 
+select * from usuario;
